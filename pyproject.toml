@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-hostd"
+version = "0.1.0rc1"
+description = "Host-side approved argv execution bridge"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Violet Software"}]
+classifiers = ["Operating System :: POSIX :: Linux"]
+requires-python = ">=3.10"
+dependencies = ["aiohttp>=3.9.0,<4"]
+
+[project.optional-dependencies]
+# Compatibility extra; aiohttp is now always installed.
+http = []
+yaml = ["PyYAML>=6"]
+
+[project.scripts]
+hostd = "hermes_hostd.hostd:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["hermes_hostd*"]
+
+[tool.setuptools.data-files]
+"share/hermes-hostd/systemd" = ["packaging/systemd/hermes-hostd.service"]
+"share/hermes-hostd/docs" = ["docs/ntfy-approval.md", "docs/admission-limits.md", "docs/disk-logs.md", "docs/persistent-intent.md", "docs/cancellation.md", "docs/requester-auth.md", "docs/release.md"]

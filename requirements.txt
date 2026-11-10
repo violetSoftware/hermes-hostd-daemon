@@ -1,0 +1,2 @@
+# Required for bounded async HTTP transport and ntfy approval (including VSOCK).
+aiohttp>=3.9.0,<4

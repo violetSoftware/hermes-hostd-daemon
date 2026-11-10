@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Runtime configuration and secrets: never stage these.
+# Example/test configs require explicit review before force-adding.
+*.yaml
+*.yml
+.env
+.env.*
+*.key
+*.pem
+*.db
+*.db-*
+
+# Historical local deployment notes: preserve on disk, not in release Git.
+STATUS.md
+SECURITY_REVIEW.md
+hermes-hostd.service
+!packaging/systemd/hermes-hostd.service
+deploy/
+
+# Legacy client/plugin source retained for production compatibility.
+# Canonical release plugin lives in ../hermes-hostd-plugin/.
+client/
+hermes-plugin/
+tests/test_phoned_plugin.py
+
+# Logs
+*.log
+logs/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

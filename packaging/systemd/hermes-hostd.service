@@ -1,0 +1,17 @@
+# Newly authored USER unit template. Do not use with the cli approver:
+# ordinary background services have no operator-controlled /dev/tty.
+# Configure a non-terminal approver first; ntfy decisions are unsigned and
+# are NOT a strong approval boundary. See docs/release.md before activation.
+[Unit]
+Description=Hermes approved host command bridge
+
+[Service]
+Type=simple
+WorkingDirectory=%h
+ExecStart=%h/.local/share/hermes-hostd/venv/bin/hostd --config %h/.config/hermes-hostd/config.json
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target
